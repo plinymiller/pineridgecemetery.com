@@ -156,6 +156,12 @@ legend{font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-s
 
 footer{padding:40px 0 60px;border-top:1px solid var(--line);font-size:1rem;color:var(--granite)}
 footer ul{padding-left:1.1em;margin:.4rem 0}
+.nav a{min-height:44px;display:inline-flex;align-items:center}
+#support{background:var(--birch-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+#support .btn{min-height:44px;display:inline-flex;align-items:center;margin-top:.4rem}
+footer .foot-links{display:flex;flex-wrap:wrap;gap:4px 8px;margin:0 0 1rem}
+footer .foot-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px 0 0;font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.92rem;text-decoration:none;color:var(--balsam)}
+footer .foot-links a:hover{color:var(--lake);text-decoration:underline}
 </style>
 </head>
 <body>
@@ -168,6 +174,7 @@ footer ul{padding-left:1.1em;margin:.4rem 0}
     <a href="#map">Story map</a>
     <a href="#directory">Directory</a>
     <a href="#volunteer">Volunteer</a>
+    <a href="#support">Support</a>
   </div>
 </nav>
 
@@ -310,10 +317,22 @@ footer ul{padding-left:1.1em;margin:.4rem 0}
     </div>
   </div>
 </section>
+
+<section id="support">
+  <div class="wrap">
+    <p class="eyebrow">Support</p>
+    <h2>Support this site</h2>
+    <p class="read">This site is a volunteer labor of love. Contributions help cover web hosting, the domain, and upkeep — nothing more. This site is not a nonprofit, and contributions are not tax-deductible.</p>
+    <p><a class="btn solid" href="https://ko-fi.com/plinymiller" target="_blank" rel="noopener">Support this site</a></p>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap">
+    <nav class="foot-links" aria-label="Site">
+      <a href="#support">Support</a>
+    </nav>
     <p><b>Sources.</b> History and burial records: Historic Saranac Lake, "The History and Significance of Pine Ridge Cemetery" (researched by Paul A. Skerritt, Kitty Peightal and Ann Flynn, with later additions) and its A to Z burial lists. Film: Mountain Lake PBS, <i>Curiously Adirondack</i>, 2014. Memorial links: Find a Grave. Dates follow the transcribed stone or burial book and should be checked against the stone before anything is carved in it.</p>
     <p>This is a community project and is not an official publication of the Pine Ridge Cemetery Association.</p>
     <p>Site design by <a href="https://plinymiller.com" target="_blank" rel="noopener">Pliny Miller Design</a>, named for the Saranac Lake settler buried here in Section L.</p>
