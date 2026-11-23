@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pine Ridge Cemetery</title>
+<meta name="description" content="Pine Ridge Cemetery, Saranac Lake, New York: its history, a tour with Natalie Leduc, and the stories of the people buried there. A community project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,700;1,8..60,500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a 1920s memorial programme. Soft tan stock, black ink, one line of gilt.
+   A narrow reading column broken by full-width plates; double rules and a sunburst, nothing else for ornament. */
+:root{
+  --birch:#e9dcc4;      /* soft tan stock */
+  --birch-2:#dfcfb1;    /* raised band */
+  --spruce:#15141a;     /* ink */
+  --balsam:#2a2a33;     /* secondary ink, rules */
+  --pine:#1c1c24;       /* silhouettes */
+  --fern:#c2b193;       /* far ridge, warm grey */
+  --lake:#1c2a4a;       /* midnight blue, links and markers */
+  --brass:#6a4c0a;      /* gilt */
+  --granite:#463f33;    /* muted text */
+  --line:#bfab88;
+  --card:#f2e8d5;
+  --display:"Libre Baskerville","Baskerville","Georgia",serif;
+  --caps:"Josefin Sans","Futura","Century Gothic","Trebuchet MS",sans-serif;
+  --body:"Source Serif 4","Iowan Old Style",Georgia,serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--birch);color:var(--spruce);font-family:var(--body);font-weight:500;font-size:20px;line-height:1.7}
+a{color:var(--lake);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.read{max-width:66ch}
+.eyebrow{font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.9rem;color:var(--brass);margin:0 0 .4rem}
+.muted{color:var(--granite)}
+.small{font-size:.95rem}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:5;background:var(--birch);border-bottom:3px double var(--brass)}
+.nav .wrap{display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.nav .mark{font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-right:auto}
+.nav a{font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.92rem;text-decoration:none;color:var(--balsam);padding:6px 0}
+.nav a:hover{color:var(--lake);text-decoration:underline}
+
+/* hero */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.hero svg{display:block;width:100%;height:auto}
+.hero .title{padding:44px 0 8px}
+.hero h1{font-size:clamp(2.3rem,6.4vw,4.4rem);line-height:.98;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero .sub{font-family:var(--caps);font-weight:700;text-transform:uppercase;font-size:.95rem;letter-spacing:.12em;margin:.9rem 0 0;color:var(--balsam)}
+.community{display:inline-block;margin:1.1rem 0 0;padding:8px 14px;border:1px solid var(--brass);background:var(--card);font-size:.95rem}
+.soon{border:4px double var(--balsam);background:var(--card);padding:28px;max-width:66ch}
+.soon h3{font-size:1.6rem;margin-bottom:.4rem}
+[hidden]{display:none !important}
+.film.playing{aspect-ratio:16/9}.film iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hero .lede{font-size:1.2rem;margin:1.1rem 0 0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border-top:1px solid var(--line);margin-top:0}
+.facts div{padding:16px 20px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-family:var(--display);font-weight:700;font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.facts span{font-size:1rem;color:var(--granite)}
+
+section{padding:64px 0}
+section h2{font-size:clamp(1.7rem,3.6vw,2.3rem);line-height:1.08;margin-bottom:.6rem}
+.band{background:var(--birch-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* timeline */
+.tl{list-style:none;margin:28px 0 0;padding:0;border-left:1px solid var(--balsam)}
+.tl li{display:grid;grid-template-columns:104px 1fr;gap:16px;padding:10px 0 10px 18px;position:relative}
+.tl li::before{content:"";position:absolute;left:-4px;top:1.15em;width:7px;height:7px;background:var(--brass);transform:rotate(45deg)}
+.tl time{font-family:var(--display);font-weight:700;font-size:1.1rem;font-variant-numeric:tabular-nums;color:var(--balsam)}
+.tl p{margin:0;max-width:60ch}
+@media (max-width:520px){.tl li{grid-template-columns:1fr;gap:0}}
+
+/* nat */
+.nat{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:center}
+@media (max-width:760px){.nat{grid-template-columns:1fr}}
+.film{display:block;position:relative;border:4px double var(--brass);background:var(--birch-2);color:var(--spruce);text-decoration:none;aspect-ratio:16/9;overflow:hidden}
+.film svg{position:absolute;inset:0;width:100%;height:100%}
+.film .play{position:absolute;left:16px;bottom:16px;background:var(--card);padding:8px 16px 8px 8px;display:flex;align-items:center;gap:14px;font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+.film .play i{width:54px;height:54px;border:2px solid var(--spruce);background:var(--card);border-radius:50%;display:grid;place-items:center}
+.film .play i::after{content:"";border-left:14px solid var(--spruce);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.film .len{position:absolute;right:16px;top:14px;font-size:.8rem;letter-spacing:.08em;font-family:var(--caps);font-weight:700;text-transform:uppercase;color:var(--granite);background:var(--card);padding:4px 8px 2px}
+.film:hover .play i{background:var(--spruce)}.film:hover .play i::after{border-left-color:var(--card)}
+
+/* map */
+.mapbox{background:var(--card);border:1px solid var(--line);margin-top:24px}
+.mapbox .scroll{overflow-x:auto}
+#plot{display:block;min-width:680px;width:100%;height:auto}
+#plot .reg{fill:var(--birch);stroke:var(--balsam);stroke-width:1}
+#plot .rl{font-family:var(--caps);font-weight:700;font-size:14px;letter-spacing:1.4px;fill:var(--balsam)}
+#plot .rs{font-family:var(--body);font-size:13px;fill:var(--granite)}
+#plot .road{stroke:var(--line);stroke-width:14;stroke-linecap:round}
+#plot .roadl{font-family:var(--caps);font-weight:700;font-size:12px;letter-spacing:2px;fill:var(--granite)}
+#plot .pin{cursor:pointer}
+#plot .pin circle{stroke:var(--lake);stroke-width:1.6;fill:var(--card)}
+#plot .pin.told circle{fill:var(--lake)}
+#plot .pin.on circle{stroke:var(--brass);fill:var(--brass)}
+#plot .pin:hover circle{stroke:var(--brass)}
+.legend{display:flex;gap:20px;flex-wrap:wrap;padding:12px 16px;border-top:1px solid var(--line);font-size:.95rem;color:var(--granite)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;border:1.6px solid var(--lake);margin-right:6px;vertical-align:-1px}
+.legend i.f{background:var(--lake)}
+
+.story{margin-top:20px;border:4px double var(--balsam);background:var(--card);padding:24px;display:grid;gap:8px}
+.story h3{font-size:1.7rem;line-height:1.1}
+.story .dates{font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--balsam)}
+.story p{margin:.3rem 0 0;max-width:64ch}
+.story .want{font-style:italic;color:var(--granite)}
+.story .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+.btn{font:inherit;line-height:1.2;padding-top:12px !important;font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.92rem;padding:9px 16px;border:1px solid var(--balsam);background:transparent;color:var(--spruce);cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--spruce);color:var(--birch)}
+.btn.solid{background:var(--spruce);border-color:var(--spruce);color:var(--birch)}
+.btn.solid:hover{background:var(--brass);border-color:var(--brass)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* directory */
+.tools{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 10px}
+.tools input,.tools select,form input,form textarea,form select{font:inherit;font-weight:500;text-transform:none;letter-spacing:0;font-size:1.05rem;padding:11px 12px;border:1px solid var(--balsam);background:var(--card);color:var(--spruce);border-radius:0}
+.tools input{flex:1 1 240px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:1rem}
+th{font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-weight:400;text-align:left;color:var(--balsam);border-bottom:1px solid var(--balsam);padding:10px 14px;white-space:nowrap}
+td{padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+td.nm button{font:inherit;font-family:var(--body);font-weight:700;font-size:1.08rem;background:none;border:0;padding:0;color:var(--spruce);cursor:pointer;text-align:left;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px}
+td.nm button:hover{color:var(--lake)}
+.chip{display:inline-block;font-size:.8rem;letter-spacing:.06em;font-family:var(--caps);font-weight:700;text-transform:uppercase;padding:1px 8px;border:1px solid var(--line);color:var(--granite);white-space:nowrap}
+.chip.told{border-color:var(--lake);color:var(--lake)}
+.letters{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.letters a{font-family:var(--caps);font-weight:700;text-transform:uppercase;min-width:34px;text-align:center;padding:4px 6px;border:1px solid var(--line);text-decoration:none;color:var(--balsam);background:var(--card)}
+.letters a:hover{border-color:var(--lake);color:var(--lake)}
+
+/* volunteer */
+.vol{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+@media (max-width:820px){.vol{grid-template-columns:1fr}}
+form{display:grid;gap:14px;background:var(--card);border:4px double var(--balsam);padding:22px}
+form label{display:grid;gap:5px;font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;color:var(--balsam)}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:6px}
+legend{font-family:var(--caps);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;color:var(--balsam);padding:0;margin-bottom:4px}
+.role{display:flex;gap:10px;align-items:flex-start;font-family:var(--body);font-weight:500;text-transform:none;letter-spacing:0;font-size:1.05rem;color:var(--spruce)}
+.role input{width:20px;height:20px;margin-top:.3em;accent-color:var(--lake)}
+.role small{display:block;color:var(--granite)}
+#vmsg{min-height:1.4em;margin:0;font-size:1rem}
+.roster{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--balsam)}
+.roster li{padding:12px 0;border-bottom:1px solid var(--line);display:grid;gap:4px}
+.roster .who{font-weight:700;font-size:1.15rem}
+.roster .chips{display:flex;gap:6px;flex-wrap:wrap}
+
+footer{padding:40px 0 60px;border-top:1px solid var(--line);font-size:1rem;color:var(--granite)}
+footer ul{padding-left:1.1em;margin:.4rem 0}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <span class="mark">Pine Ridge</span>
+    <a href="#history">History</a>
+    <a href="#nat">Walk with Nat</a>
+    <a href="#map">Story map</a>
+    <a href="#directory">Directory</a>
+    <a href="#volunteer">Volunteer</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap title">
+    <p class="eyebrow">Saranac Lake, New York · Town of North Elba</p>
+    <h1>Pine Ridge <em>Cemetery</em></h1>
+    <p class="sub">The old Moody burying ground · in use since the 1840s</p>
+    <p class="community">A community project by Saranac Lake families and volunteers. Not the official site of the Pine Ridge Cemetery Association.</p>
+    <p class="lede read">Twelve terraced acres above River Street hold the village's whole story: the first settlers, the guides and hotel keepers, the doctors who fought tuberculosis, and the patients from every corner of the world who came here hoping to get well.</p>
+  </div>
+  <div id="ridge" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="facts">
+      <div><b>5,000+</b><span>burials on the hillside</span></div>
+      <div><b>≈ 400</b><span>veterans, every war since 1812</span></div>
+      <div><b>3</b><span>faiths in one ground</span></div>
+      <div><b>1843</b><span>oldest marked grave</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="history">
+  <div class="wrap">
+    <p class="eyebrow">History</p>
+    <h2>A farm knoll that became the village's memory</h2>
+    <div class="read">
+      <p>Jacob Smith Moody brought his family to this valley in 1819, the first settlers of what became Saranac Lake. When the family needed a burial place they chose a pine-covered knoll on their own farm, close to the house on River Street, and they let any neighbor who needed a grave use it without charge. For generations it was simply the Moody Cemetery.</p>
+      <p>Then the village changed. Dr. Edward Livingston Trudeau opened his sanatorium in 1884, and people with tuberculosis arrived from across the country and overseas. Many recovered. Many did not, and those who could not be sent home on the night train were buried here, some in graves that never received a stone. A patient curing in a cottage on Clinton Avenue, the poet Adelaide Crapsey, looked down on these graves from her window and wrote about them.</p>
+      <p>The hillside holds a Catholic ground (old St. Bernard's), a Jewish ground (the Hebrew Memorial Cemetery) and the old Protestant lots side by side. Historic Saranac Lake calls that unusual for a remote mountain village of the time. Stone terrace walls, laid in several styles, hold the slope together.</p>
+    </div>
+    <ol class="tl">
+      <li><time>1819</time><p>The Moody family settles the farm that includes today's cemetery. Pine Street follows the old Northwest Bay Road.</p></li>
+      <li><time>1843</time><p>Mary Ann Reynolds, age seven, is buried. Hers is the oldest marked grave.</p></li>
+      <li><time>1852</time><p>Sally Moody, Jacob's wife, becomes the first of the family laid on the knoll.</p></li>
+      <li><time>1884</time><p>Trudeau's sanatorium opens. In 1892 it buys lots here for eight of its patients.</p></li>
+      <li><time>1894</time><p>St. Bernard's parish acquires an acre and a half north of the Moody plots. Benjamin Moody keeps the right to cut hay there for two more years.</p></li>
+      <li><time>1916</time><p>Pine Ridge Cemetery incorporates and buys the old Moody ground. The directors first meet in the Adirondack National Bank building.</p></li>
+      <li><time>1919</time><p>The Hebrew Memorial Cemetery is dedicated with sixteen plots and a bronze plaque.</p></li>
+      <li><time>1925</time><p>Architects Scopes and Feustmann design a winter vault for thirty, where the dead waited for the ground to thaw in May. A stone and iron gateway goes up on River Street.</p></li>
+      <li><time>1940</time><p>The National Vaudeville Artists Lodge buys eight plots for its patients.</p></li>
+      <li><time>1942–45</time><p>Norwegian merchant sailors, stranded when Germany invaded their country and sent here to cure, are buried together near the vault.</p></li>
+      <li><time>Today</time><p>Still an active cemetery, owned by an association of lot holders and families and kept up largely by volunteers.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="nat" class="band">
+  <div class="wrap nat">
+    <a class="film" href="https://www.youtube.com/watch?v=Nxg-WplJjoM" target="_blank" rel="noopener" aria-label="Watch the Pine Ridge tour with Natalie Leduc on YouTube">
+      <span id="filmart"></span>
+      <span class="len">6 min 33 s · 2014</span>
+      <span class="play"><i></i>Watch the tour</span>
+    </a>
+    <div>
+      <p class="eyebrow">Footage</p>
+      <h2>Walk the hill with Nat</h2>
+      <p>Nobody knew this ground like Natalie Leduc. A former Winter Carnival queen and one of the cemetery's longtime caretakers, she led Mountain Lake PBS up the terraces for <i>Curiously Adirondack</i>, telling the stories behind the stones as she went.</p>
+      <p class="small muted">Produced by Josh Clement and Ed Kanze for Mountain Lake PBS. The film opens on YouTube in a new tab.</p>
+      <p><a class="btn solid" href="https://www.youtube.com/watch?v=Nxg-WplJjoM" target="_blank" rel="noopener">Watch on YouTube</a> <a class="btn" href="https://www.pbs.org/video/borderless-north-saranac-lakes-historic-pine-ridge-cemetery" target="_blank" rel="noopener">Watch on PBS</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="map">
+  <div class="wrap">
+    <p class="eyebrow">Story map</p>
+    <h2>Every marker is a person</h2>
+    <p class="read">Choose a marker to meet someone buried here. Filled markers have a story. Open markers are still waiting for one.</p>
+    <div class="mapbox">
+      <div class="scroll"><svg id="plot" viewBox="0 0 800 520" role="group" aria-label="Section guide to Pine Ridge Cemetery"></svg></div>
+      <div class="legend">
+        <span><i class="f"></i>Story told</span>
+        <span><i></i>Story wanted</span>
+        <span>Section guide, not a survey. Placement on the hill is approximate until the association's plot map is loaded.</span>
+      </div>
+    </div>
+    <article class="story" id="story" aria-live="polite"></article>
+  </div>
+</section>
+
+<section id="directory" class="band">
+  <div class="wrap">
+    <p class="eyebrow">Directory</p>
+    <h2>Find a name</h2>
+    <p class="read">A starter directory of <span id="count"></span> people, drawn from the burial records Historic Saranac Lake volunteers transcribed. Each name opens its story and links to Find a Grave. The full register of more than 4,000 records is linked by letter below.</p>
+    <div class="tools">
+      <input id="q" type="search" placeholder="Search a name, year or section" aria-label="Search the directory">
+      <select id="g" aria-label="Filter by group"></select>
+      <select id="s" aria-label="Filter by story status">
+        <option value="">All stories</option><option value="told">Story told</option><option value="want">Story wanted</option>
+      </select>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Name</th><th>Born</th><th>Died</th><th>Section</th><th>Story</th><th>Records</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="small muted" style="margin:.8rem 0 0">Full burial register at Historic Saranac Lake, by surname:</p>
+    <div class="letters" id="letters"></div>
+    <p style="margin-top:22px"><a class="btn" href="https://www.findagrave.com/memorial/139457710/benjamin-richard-moody" target="_blank" rel="noopener">Open Pine Ridge on Find a Grave</a> <span class="small muted">Opens the Benjamin Moody memorial. Choose "Pine Ridge Cemetery" there for the cemetery page and its map.</span></p>
+  </div>
+</section>
+
+<section id="volunteer">
+  <div class="wrap">
+    <p class="eyebrow">Volunteer</p>
+    <h2>Help bring them back to life</h2>
+    <p class="read">The cemetery runs on volunteers, and so does this project: writing the stories, photographing stones, pinning graves on the map, and looking after the grounds.</p>
+    <div class="soon" id="soon"><p class="eyebrow">Coming soon</p><h3>Volunteer sign-up</h3><p style="margin:0">The sign-up sheet is being set up. Check back shortly.</p></div>
+    <!-- Volunteer sign-up sheet: kept for later. Set SIGNUPS_ENABLED to true in the script once a form backend is configured. -->
+    <div class="vol" id="volsheet" hidden>
+      <div>
+        <p>The cemetery runs on volunteers. So does this project. On Find a Grave, about four in five Pine Ridge memorials have a photograph, yet only about one in fifty has a GPS location, which is why the map above is still a sketch.</p>
+        <form id="vform" novalidate>
+          <label for="vname">Your name<input id="vname" required maxlength="80" autocomplete="name"></label>
+          <fieldset>
+            <legend>How you'd like to help</legend>
+            <label class="role"><input type="checkbox" name="role" value="Story researcher" id="r1"><span>Story researcher<small>Write one person's life from obituaries, census and family memory</small></span></label>
+            <label class="role"><input type="checkbox" name="role" value="Photos and GPS" id="r2"><span>Photos and GPS<small>Photograph stones and pin their locations for Find a Grave</small></span></label>
+            <label class="role"><input type="checkbox" name="role" value="Grounds day" id="r3"><span>Grounds day<small>Raking, brush, and gentle stone cleaning</small></span></label>
+            <label class="role"><input type="checkbox" name="role" value="Veterans' flags" id="r4"><span>Veterans' flags<small>Place and collect flags for Memorial Day and Veterans Day</small></span></label>
+            <label class="role"><input type="checkbox" name="role" value="Records" id="r5"><span>Records<small>Check transcriptions against the stones and burial books</small></span></label>
+          </fieldset>
+          <label for="vwhen">When you're available<input id="vwhen" maxlength="120" placeholder="Saturday mornings, May to October"></label>
+          <label for="vstory">A person or family you'd like to take on<input id="vstory" maxlength="120" placeholder="Optional"></label>
+          <label for="vcontact">Email or phone<input id="vcontact" maxlength="120" autocomplete="email"><small class="muted" style="font-family:var(--body);letter-spacing:0;text-transform:none;font-weight:400;font-size:.95rem">Seen only by the page's owner and editors, not on the public list.</small></label>
+          <div><button class="btn solid" id="vbtn" type="submit">Sign me up</button></div>
+          <p id="vmsg" role="status"></p>
+        </form>
+      </div>
+      <div>
+        <h3 style="font-size:1.5rem">Signed up so far</h3>
+        <p class="small muted" id="rstat">Loading the sheet…</p>
+        <ul class="roster" id="roster"></ul>
+        <p class="small muted" style="margin-top:18px">Anyone with family buried here, or who owns a lot, is a member of the Pine Ridge Cemetery Association.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Sources.</b> History and burial records: Historic Saranac Lake, "The History and Significance of Pine Ridge Cemetery" (researched by Paul A. Skerritt, Kitty Peightal and Ann Flynn, with later additions) and its A to Z burial lists. Film: Mountain Lake PBS, <i>Curiously Adirondack</i>, 2014. Memorial links: Find a Grave. Dates follow the transcribed stone or burial book and should be checked against the stone before anything is carved in it.</p>
+    <p>This is a community project and is not an official publication of the Pine Ridge Cemetery Association.</p>
+    <p>Site design by <a href="https://plinymiller.com" target="_blank" rel="noopener">Pliny Miller Design</a>, named for the Saranac Lake settler buried here in Section L.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var SIGNUPS_ENABLED=false; /* turn on when the sign-up backend is configured */
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+/* ---------- ridge-line art ---------- */
+function rnd(seed){var s=seed;return function(){s=(s*16807)%2147483647;return (s-1)/2147483646}}
+function ridge(w,h,base,amp,seed){var r=rnd(seed),p1=r()*6,p2=r()*6,d="M0 "+h;for(var x=0;x<=w;x+=8){var y=base-amp*(.55*Math.sin(x/170+p1)+.3*Math.sin(x/61+p2)+.15*Math.sin(x/23+p1));d+=" L"+x+" "+y.toFixed(1)}return d+" L"+w+" "+h+" Z"}
+function pine(x,y,h){var w=h*.36,d="M"+x+" "+(y-h);for(var i=1;i<=4;i++){var yy=y-h+h*.22*i,ww=w*(i/4);d+=" L"+(x+ww).toFixed(1)+" "+yy.toFixed(1)+" L"+(x+ww*.45).toFixed(1)+" "+yy.toFixed(1)}d+=" L"+(x+h*.03)+" "+(y-h*.12)+" L"+(x+h*.03)+" "+y+" L"+(x-h*.03)+" "+y+" L"+(x-h*.03)+" "+(y-h*.12);for(i=4;i>=1;i--){yy=y-h+h*.22*i;ww=w*(i/4);d+=" L"+(x-ww*.45).toFixed(1)+" "+yy.toFixed(1)+" L"+(x-ww).toFixed(1)+" "+yy.toFixed(1)}return d+" Z"}
+function art(w,h,seed,stones){
+  var r=rnd(seed),s='<svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">';
+  var rays='';for(var k=0;k<=36;k++){var an=Math.PI*(k/36),L=w*.75;rays+='M'+(w/2)+' '+(h*.92)+' L'+(w/2-Math.cos(an)*L).toFixed(1)+' '+(h*.92-Math.sin(an)*L).toFixed(1)+' '}
+  s+='<path d="'+rays+'" stroke="var(--brass)" stroke-width="1" opacity=".4" fill="none"/>';
+  s+='<path d="'+ridge(w,h,h*.38,h*.16,seed+1)+'" fill="var(--fern)" opacity=".45"/>';
+  s+='<path d="'+ridge(w,h,h*.52,h*.13,seed+2)+'" fill="var(--granite)" opacity=".5"/>';
+  s+='<path d="'+ridge(w,h,h*.7,h*.08,seed+3)+'" fill="var(--pine)" opacity=".7"/>';
+  var d="";for(var i=0;i<46;i++){var x=r()*w,hh=h*(.22+r()*.34);d+=pine(+x.toFixed(1),h*(.86+r()*.1),+hh.toFixed(1))}
+  s+='<path d="'+d+'" fill="var(--pine)"/>';
+  s+='<rect x="0" y="'+(h*.9)+'" width="'+w+'" height="'+(h*.1)+'" fill="var(--pine)"/>';
+  if(stones){for(i=0;i<34;i++){var sx=20+r()*(w-40),sy=h*(.9+r()*.05),sw=7+r()*5,sh=10+r()*9;s+='<path d="M'+sx.toFixed(1)+' '+(sy+sh).toFixed(1)+' v-'+sh.toFixed(1)+' a'+(sw/2).toFixed(1)+' '+(sw/2).toFixed(1)+' 0 0 1 '+sw.toFixed(1)+' 0 v'+sh.toFixed(1)+' z" fill="var(--birch)" opacity="'+(.45+r()*.4).toFixed(2)+'"/>'}}
+  return s+'</svg>'}
+$("ridge").innerHTML=art(1600,300,1819,true);
+$("filmart").innerHTML=art(640,360,1884,true);
+
+/* On the public site the film plays in place; elsewhere the card opens YouTube. */
+(function(){var f=document.querySelector(".film");if(!f||!/(^|\.)pineridgecemetery\.com$/.test(location.hostname))return;
+f.addEventListener("click",function(e){e.preventDefault();if(f.classList.contains("playing"))return;f.classList.add("playing");
+f.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/Nxg-WplJjoM?autoplay=1&rel=0" title="Pine Ridge Cemetery tour with Natalie Leduc" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>'})})();
+
+/* ---------- people ---------- */
+/* [name, born, died, section, group, story, findAGraveMemorialId] ; story "" = wanted */
+var G={f:"Founders and settlers",h:"Hotels and guides",d:"Doctors of the cure",m:"Builders and makers",v:"Veterans",n:"Norwegian seamen",w:"The world came to cure",j:"Hebrew Memorial",c:"Old St. Bernard's",b:"Benefactors"};
+var P=[
+["Jacob Smith Moody","1787","1863","L 77","f","Saranac Lake's first settler. He came from New Hampshire by way of Keene, took up 160 acres here in 1819, and lived as a farmer, trapper and guide. In the War of 1812 he was a fifer in the Ninth New York Infantry and was at the Battle of Plattsburgh. His stone carries a War of 1812 marker. The transcribed stone reads 1863; the published history gives his burial as 1862."],
+["Sally B. Moody","1789","1852","L 77","f","Jacob's wife, who made a home on the frontier farm. She was the first of the Moody family buried on the knoll that became this cemetery."],
+["Cortis F. Moody","1822","1902","L 57","f","The first child born to settlers in Saranac Lake. He lies in the family plot within sight of the place where he was born."],
+["Martha J. Moody","1823","June 12, 1867","L 57","f",""],
+["Harvey Moody","1808","April 21, 1880","L 89","f",""],
+["Benjamin R. Moody","Dec. 25, 1844","1933","L 71","f","The Moody who let the old family ground grow into a village cemetery. In 1894 he and Elenora Moody deeded an acre and a half to St. Bernard's parish, keeping the right to cut hay on it for two more years. In 1916 the new cemetery corporation bought the Moody ground from him.",139457710],
+["Mary Ann Reynolds","July 22, 1835","Jan. 16, 1843","L 40","f","Daughter of Newel and Patty Reynolds. She was seven. Hers is the oldest marked grave in Pine Ridge, nine years older than any Moody stone."],
+["Pliny H. Miller","","Nov. 21, 1867","L 104","f",""],
+["Louise Bushnell Miller","1809","June 14, 1854","L 104","f",""],
+["Milo Bushnell Miller","July 21, 1846","Sept. 7, 1917","L 111","f","Son of the early settlers Pliny and Louise Miller. He made a fortune speculating in Adirondack land, and his grave carries one of the most imposing monuments on the hill. Sixty-three Millers are buried in Pine Ridge. The burial record gives 1846 for his birth; the published history says 1842."],
+["Jesse Corey","1819","May 28, 1896","L 68","h","The hamlet of Coreys, west of the village, carries his name. He outlived his wife Marion by thirty-seven years and rests beside her in the old Moody ground."],
+["Marion Corey","1834","Oct. 29, 1859","L 68","h",""],
+["William F. Martin","1823","Oct. 3, 1892","L 125","h","In 1852 he built the first hotel on Lower Saranac Lake, at the start of the years when sportsmen and summer visitors discovered the Adirondacks."],
+["Charles F. Gray","Aug. 13, 1845","April 26, 1883","L 41","h","Builder of the Berkeley Hotel in the center of the village. A Grand Army of the Republic marker stands at his grave. He was thirty-seven."],
+["Orlando Blood","July 29, 1820","March 7, 1900","L 50","h","Keeper of the Riverside Inn on Main Street."],
+["Jabez D. Alexander","1842","1916","K 19","h","He built the Algonquin, the later grand hotel on Lower Saranac Lake."],
+["Thomas Henry Peacock","March 5, 1853","June 14, 1942","R 111","h","Tom Peacock worked as an Adirondack guide and went on to develop cure cottages as the village filled with patients."],
+["Cassius M. Ladieu","1854","Aug. 12, 1893","L 4","f",""],
+["Lawrason Brown, M.D.","Sept. 29, 1871","Dec. 26, 1937","E 17","d","He arrived as a tuberculosis patient and stayed as a physician, becoming a specialist known around the world and a director of the Trudeau Sanatorium. He set up the first workshop where sanatorium patients could do occupational therapy. The Pines, the wooded hillside east of Pine Street, is kept as his memorial."],
+["Edward R. Baldwin, M.D.","Sept. 8, 1864","May 6, 1947","F 15","d","A pioneer of tuberculosis research in the United States, he directed the Saranac Laboratory until 1926. The poet Adelaide Crapsey was his patient."],
+["James Woods Price, M.D.","1877","1951","D 1","d",""],
+["Hugh McLennan Kinghorn, M.D.","1869","1957","D 7","d",""],
+["Edward N. Packard, M.D.","1883","1968","E 5","d",""],
+["Joseph Longworth Nichols, M.D.","1870","1918","G 9","d","A physician who was himself a tuberculosis patient, remembered in the village history as a man of means."],
+["Mary Morgan Nichols","1881","1964","G 9","d",""],
+["William H. Scopes","1877","1964","B 14","m","An architect who made a specialty of sanatorium design. With his partner Maurice Feustmann he drew the Reception Hospital, the Harrietstown Town Hall, the Hotel Saranac and the Will Rogers Hospital. He also designed this cemetery's winter vault, a short walk from his own grave."],
+["William Langmead Distin","1864","1930","D 17","m","One of the village's early photographers. Much of what we know about how Saranac Lake once looked comes from men like him."],
+["Theodore J. Hanmer","Feb. 26, 1869","April 19, 1957","S 142","m","Head of the Hanmer family of guideboat builders, whose light, fast boats are an Adirondack craft tradition of their own."],
+["Willard J. Hanmer","1901","1962","S 142","m",""],
+["Carl Lumholtz","April 23, 1851","May 5, 1922","W 7","m","Explorer and scientist, born in Lillehammer, Norway, where a statue stands in his honor. He died in Saranac Lake, and his grave here was identified only in recent years."],
+["Rev. Elmer Pliny Miller","Feb. 28, 1860","Jan. 5, 1930","B 15","m","Rector of the Church of St. Luke the Beloved Physician from 1917 until his death in 1930."],
+["Edward S. “Tex” O'Reilly","Aug. 15, 1880","Dec. 8, 1946","F 13","v","",139500725],
+["Maj. Emory Stratton Turner","Nov. 11, 1842","Oct. 11, 1921","A","v","",140176468],
+["Jason Vosburgh","Dec. 14, 1842","March 3, 1918","L 9","v","Company H, Ninth Vermont Infantry, in the Civil War. A Grand Army of the Republic marker stands at his grave."],
+["Robert A. Bogie","Oct. 10, 1924","Sept. 24, 2000","B 1","v","A much-decorated veteran of the Second World War, buried in his family's old lot."],
+["Kenneth E. Martin","1915","Oct. 10, 1942","O 112","v","Leading seaman of the Royal Navy, HMS Saker. He was twenty-seven. His is the one Commonwealth war grave in Pine Ridge."],
+["Fletcher A. Mace","March 28, 1877","May 2, 1974","K 23","v",""],
+["Karl Engeldinger","May 17, 1894","Dec. 2, 1971","P 422","v",""],
+["Hilda E. Aass","1913","1943","P 103","n","Buried with the Norwegian seamen. The published history counts the daughter of a merchant marine captain among the sixteen."],
+["Alfred Abrahamsen","1920","1945","P 103","n",""],
+["Olaf Berg","1920","1945","P 103","n",""],
+["Haakon Engh","1914","1945","P 103","n",""],
+["Anker Halvorsen","1921","1944","P 103","n",""],
+["Elias Harkestad","1910","1945","P 103","n",""],
+["Trygve Magnussen","1897","1945","P 103","n",""],
+["John Leonard Nyberg","1917","1944","P 103","n",""],
+["John Svendsen","1916","1943","P 103","n",""],
+["Demetrious Parliaris","July 25, 1897","May 30, 1928","Y 25","w","His stone says where he began and where he ended: born on the island of Skopelos in Greece, died in Saranac Lake. He was thirty."],
+["Suzu Suzuki","1895","1929","X 23","w",""],
+["Manuel Palop","Jan. 1, 1906","Aug. 11, 1937","X 17","w",""],
+["Nellie Queally","1890","1936","W 31","w",""],
+["Teresa Zuchniewicz","1893","1925","E 8","w",""],
+["Irene Makay","1897","1925","E 8","w",""],
+["Jose Aleman","1895","1920","Y 12","w",""],
+["Darkis A. Bezirian","1874","1924","X 8","w",""],
+["Margaret Walker Kennedy","1892","1921","Y 11","w",""],
+["Lars J. Johnson","July 26, 1863","Nov. 12, 1901","Q 61","w",""],
+["Max Person","Feb. 19, 1878","Sept. 26, 1894","L 131","w","A Trudeau Sanatorium patient who died at sixteen, buried in one of the lots the sanatorium bought for those who could not go home."],
+["Duncan Struan Pleasants","1899","1920","L 35","w",""],
+["Mary Levin","1884","1918","N 7","j",""],
+["Tuffield Latour","1850","1931","St B","c",""],
+["Sophronia Jarvis Latour","1842","1917","St B","c",""],
+["James A. Latour","1871","1945","St B","c",""],
+["Malvina M. Yell Latour","Oct. 17, 1869","Aug. 20, 1904","St B","c",""],
+["Tuffield A. Latour","Nov. 18, 1909","June 3, 1965","St B","c",""],
+["Elizabeth K. Latour","Sept. 20, 1907","Feb. 22, 1987","St B","c",""],
+["Charles Demar","Sept. 13, 1844","Oct. 28, 1912","St B","c",""],
+["Bridget Morgan","Feb. 11, 1851","July 18, 1904","St B","c",""],
+["Louis L. Lengyel","Nov. 30, 1893","Jan. 1, 1921","St B","c",""],
+["James Collins","1916","Feb. 5, 2005","V 17","b","A son of one of the village's early families, he left his estate to the cemetery."],
+["Patricia G. Harvey","Feb. 24, 1927","June 30, 2011","K 25","b","A descendant of the Hogan family and a benefactor of the cemetery."]
+];
+/* short record notes shown when a story is still wanted */
+var NOTE={
+"Martha J. Moody":"Wife of Cortis Moody. She died at forty-four.",
+"Harvey Moody":"The stone gives his age as seventy-two.",
+"Pliny H. Miller":"Early settler and father of Milo Bushnell Miller.",
+"Louise Bushnell Miller":"Wife of Pliny H. Miller. She died at forty-five.",
+"Marion Corey":"Wife of Jesse Corey. She died at twenty-five.",
+"Cassius M. Ladieu":"A Saranac Lake Fire Department marker stands at his grave. He was thirty-nine.",
+"James Woods Price, M.D.":"One of the tuberculosis physicians buried together in the northwest corner.",
+"Hugh McLennan Kinghorn, M.D.":"One of the tuberculosis physicians buried together in the northwest corner.",
+"Edward N. Packard, M.D.":"One of the tuberculosis physicians buried together in the northwest corner.",
+"Mary Morgan Nichols":"Wife of Dr. Joseph Longworth Nichols.",
+"Willard J. Hanmer":"Of the Hanmer family of guideboat builders.",
+"Edward S. “Tex” O'Reilly":"Veteran. Born in Denison, Texas; died in Tupper Lake.",
+"Maj. Emory Stratton Turner":"Veteran. Born in Hobart, Delaware County; died in Saranac Lake.",
+"Fletcher A. Mace":"Spanish-American War veteran, New York infantry.",
+"Karl Engeldinger":"Captain, U.S. Army, First World War.",
+"Suzu Suzuki":"Came from Japan to cure.",
+"Manuel Palop":"U.S. Navy. Came from the Philippine Islands.",
+"Nellie Queally":"A Will Rogers Hospital patient from New Zealand.",
+"Teresa Zuchniewicz":"Born in Poland, died in Saranac Lake.",
+"Irene Makay":"Came from Hungary to cure.",
+"Jose Aleman":"Came from Cuba to cure.",
+"Darkis A. Bezirian":"Came from Armenia to cure. No stone marks the grave.",
+"Margaret Walker Kennedy":"Came from Scotland to cure. No stone marks the grave.",
+"Lars J. Johnson":"Born in Sweden, died in Saranac Lake.",
+"Duncan Struan Pleasants":"Son of John and Eva Pleasants. He was about twenty-one.",
+"Mary Levin":"Came from Russia to cure. Buried in the Hebrew Memorial Cemetery without a stone.",
+"Malvina M. Yell Latour":"Wife of James A. Latour.",
+"Tuffield A. Latour":"Pharmacist's mate first class, U.S. Naval Reserve, Second World War.",
+"Charles Demar":"Private, 192nd New York Infantry, Civil War.",
+"Louis L. Lengyel":"Born in Hungary. A tuberculosis patient.",
+"Bridget Morgan":"Her stone remembers a beloved wife and mother."
+};
+var NORSE="One of the Norwegian merchant sailors who were at sea when Germany invaded Norway in 1940. Unable to go home, they reached the United States, were found to have tuberculosis and were sent to Saranac Lake to cure. Sixteen who died between 1942 and 1945 lie together between the vault and the railroad tracks.";
+var people=P.map(function(a,i){return{i:i,name:a[0],b:a[1],d:a[2],sec:a[3],g:a[4],story:a[5],fg:a[6]||0}});
+
+function yr(s){var m=/(\d{4})/.exec(s||"");return m?m[1]:""}
+function fgUrl(p){
+  if(p.fg)return "https://www.findagrave.com/memorial/"+p.fg;
+  var n=p.name.replace(/,? M\.D\.$/,"").replace(/^(Rev\.|Maj\.) /,"").replace(/“.*?” ?/,"").split(" ");
+  var last=n.pop(),first=n[0]||"";
+  return "https://www.findagrave.com/memorial/search?firstname="+encodeURIComponent(first)+"&lastname="+encodeURIComponent(last)+(yr(p.d)?"&deathyear="+yr(p.d):"");
+}
+function hslUrl(p){
+  var n=p.name.replace(/,? M\.D\.$/,"").split(" "),L=n[n.length-1].charAt(0).toUpperCase();
+  var page={I:"I-J",J:"I-J",Q:"Q-R",R:"Q-R",U:"U-V",V:"U-V",X:"XYZ",Y:"XYZ",Z:"XYZ"}[L]||L;
+  return "https://localwiki.org/hsl/Pine_Ridge_"+page;
+}
+function region(p){
+  if(p.sec.indexOf("St B")===0)return "stb";
+  var c=p.sec.charAt(0);
+  if(p.g==="n")return "sea";
+  if(c==="L"||c==="K")return "moody";
+  if("ABCDEFGH".indexOf(c)>=0)return "hill";
+  if(c==="N")return "heb";
+  if("WXYZ".indexOf(c)>=0)return "rows";
+  if(c==="P"||c==="O")return "sea";
+  return "terr";
+}
+
+/* ---------- map ---------- */
+var R=[
+ {id:"hill",x:40,y:36,w:250,h:150,t:"Sections A to H",s:"Northwest corner. The doctors' hill"},
+ {id:"heb",x:306,y:36,w:150,h:110,t:"Section N",s:"Hebrew Memorial Cemetery"},
+ {id:"rows",x:472,y:36,w:230,h:150,t:"Sections W to Z",s:"Patients' rows, many without stones"},
+ {id:"stb",x:40,y:204,w:220,h:150,t:"Old St. Bernard's",s:"Catholic ground, deeded 1894"},
+ {id:"terr",x:276,y:164,w:230,h:190,t:"Sections Q to V",s:"The middle terraces"},
+ {id:"sea",x:522,y:204,w:180,h:150,t:"Sections O and P",s:"Vault and the Norwegian seamen"},
+ {id:"moody",x:150,y:372,w:480,h:96,t:"Sections L and K",s:"The old Moody burying ground, the first knoll"}
+];
+function drawMap(){
+  var s='<line class="road" x1="20" y1="496" x2="780" y2="496"/><text class="roadl" x="400" y="500" text-anchor="middle">RIVER STREET</text>';
+  s+='<line class="road" x1="754" y1="20" x2="754" y2="480"/><text class="roadl" transform="translate(758 250) rotate(90)" text-anchor="middle">PINE STREET</text>';
+  s+='<g transform="translate(726 44)"><path d="M0 -18 L6 6 L0 1 L-6 6 Z" fill="var(--balsam)"/><text class="roadl" x="0" y="22" text-anchor="middle">N</text></g>';
+  R.forEach(function(r){
+    s+='<rect class="reg" x="'+r.x+'" y="'+r.y+'" width="'+r.w+'" height="'+r.h+'"/>';
+    s+='<text class="rl" x="'+(r.x+12)+'" y="'+(r.y+22)+'">'+esc(r.t.toUpperCase())+'</text>';
+    s+='<text class="rs" x="'+(r.x+12)+'" y="'+(r.y+38)+'">'+esc(r.s)+'</text>';
+    var list=people.filter(function(p){return region(p)===r.id}),per=Math.max(1,Math.floor((r.w-28)/24));
+    list.forEach(function(p,k){
+      var cx=r.x+20+(k%per)*24,cy=r.y+60+Math.floor(k/per)*24;
+      s+='<g class="pin'+(p.story?" told":"")+'" data-i="'+p.i+'" tabindex="0" role="button" aria-label="'+esc(p.name)+', '+esc(yr(p.b)||"?")+' to '+esc(yr(p.d)||"?")+'"><circle cx="'+cx+'" cy="'+cy+'" r="8"/><title>'+esc(p.name)+'</title></g>';
+    });
+  });
+  $("plot").innerHTML=s;
+}
+function storyText(p){return p.story||(p.g==="n"?NORSE:"")}
+function show(i,scroll){
+  var p=people[i],t=storyText(p),note=NOTE[p.name]||"";
+  var dates=(p.b||"birth unknown")+" – "+(p.d||"death unknown");
+  var h='<p class="eyebrow">'+esc(G[p.g])+' · Section '+esc(p.sec)+'</p><h3>'+esc(p.name)+'</h3><p class="dates">'+esc(dates)+'</p>';
+  if(t)h+='<p>'+esc(t)+'</p>';
+  if(note)h+='<p>'+esc(note)+'</p>';
+  if(!p.story)h+='<p class="want">'+(p.g==="n"?"His own story has not been written yet.":"This story has not been written yet.")+' '+(SIGNUPS_ENABLED?'Did you know this family, or would you like to research it?':'Volunteer story-writing opens soon.')+'</p>';
+  h+='<div class="acts">';
+  if(!p.story&&SIGNUPS_ENABLED)h+='<button class="btn solid" type="button" id="claim">Claim this story</button>';
+  h+='<a class="btn" href="'+fgUrl(p)+'" target="_blank" rel="noopener">'+(p.fg?"Find a Grave memorial":"Search Find a Grave")+'</a><a class="btn" href="'+hslUrl(p)+'" target="_blank" rel="noopener">Burial record</a></div>';
+  $("story").innerHTML=h;
+  var pins=document.querySelectorAll("#plot .pin");for(var k=0;k<pins.length;k++)pins[k].classList.toggle("on",+pins[k].getAttribute("data-i")===i);
+  var c=$("claim");if(c)c.onclick=function(){$("r1").checked=true;$("vstory").value=p.name;$("volunteer").scrollIntoView();$("vname").focus({preventScroll:true})};
+  if(scroll)$("story").scrollIntoView({block:"nearest"});
+}
+drawMap();
+$("plot").addEventListener("click",function(e){var g=e.target.closest(".pin");if(g)show(+g.getAttribute("data-i"),true)});
+$("plot").addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){var g=e.target.closest(".pin");if(g){e.preventDefault();show(+g.getAttribute("data-i"),true)}}});
+show(0,false);
+
+/* ---------- directory ---------- */
+$("count").textContent=people.length;
+var gs='<option value="">All groups</option>';Object.keys(G).forEach(function(k){gs+='<option value="'+k+'">'+esc(G[k])+'</option>'});$("g").innerHTML=gs;
+function rows(){
+  var q=$("q").value.trim().toLowerCase(),g=$("g").value,st=$("s").value,h="";
+  var list=people.slice().sort(function(a,b){var la=a.name.replace(/,? M\.D\.$/,"").split(" ").pop(),lb=b.name.replace(/,? M\.D\.$/,"").split(" ").pop();return la.localeCompare(lb)||a.name.localeCompare(b.name)});
+  list.forEach(function(p){
+    if(g&&p.g!==g)return;
+    var told=!!p.story;
+    if(st==="told"&&!told)return;if(st==="want"&&told)return;
+    if(q&&(p.name+" "+p.b+" "+p.d+" "+p.sec+" "+G[p.g]).toLowerCase().indexOf(q)<0)return;
+    h+='<tr><td class="nm"><button type="button" data-i="'+p.i+'">'+esc(p.name)+'</button><div class="small muted">'+esc(G[p.g])+'</div></td><td>'+esc(p.b||"—")+'</td><td>'+esc(p.d||"—")+'</td><td>'+esc(p.sec)+'</td><td><span class="chip'+(told?" told":"")+'">'+(told?"Story told":"Story wanted")+'</span></td><td><a href="'+fgUrl(p)+'" target="_blank" rel="noopener">Find a Grave</a></td></tr>';
+  });
+  $("rows").innerHTML=h||'<tr><td colspan="6" class="muted">No one in the starter directory matches. Try the full register by letter below.</td></tr>';
+}
+["q","g","s"].forEach(function(id){$(id).addEventListener("input",rows)});
+$("rows").addEventListener("click",function(e){var b=e.target.closest("button[data-i]");if(b){show(+b.getAttribute("data-i"),false);$("map").scrollIntoView()}});
+rows();
+$("letters").innerHTML=["A","B","C","D","E","F","G","H","I-J","K","L","M","N","O","P","Q-R","S","T","U-V","W","XYZ"].map(function(l){return '<a href="https://localwiki.org/hsl/Pine_Ridge_'+l+'" target="_blank" rel="noopener">'+l+'</a>'}).join("");
+
+/* ---------- volunteer sheet (shared, kept in the artifact's database) ---------- */
+if(SIGNUPS_ENABLED){$("volsheet").hidden=false;$("soon").hidden=true}
+var db=null,uid=null,msg=$("vmsg"),rstat=$("rstat"),busy=false;
+function say(t){msg.textContent=t}
+function renderRoster(snap){
+  var ul=$("roster");ul.textContent="";
+  var docs=snap.docs.slice().sort(function(a,b){return ((a.data()||{}).ts||0)-((b.data()||{}).ts||0)});
+  docs.forEach(function(d){
+    var v=d.data()||{},li=document.createElement("li"),w=document.createElement("div"),c=document.createElement("div");
+    w.className="who";w.textContent=String(v.name||"A volunteer").slice(0,80);li.appendChild(w);
+    c.className="chips";(Array.isArray(v.roles)?v.roles:[]).slice(0,6).forEach(function(r){var s=document.createElement("span");s.className="chip told";s.textContent=String(r).slice(0,40);c.appendChild(s)});li.appendChild(c);
+    var extra=[v.when,v.story?"Taking on: "+v.story:""].filter(Boolean).join(" · ");
+    if(extra){var e=document.createElement("div");e.className="small muted";e.textContent=String(extra).slice(0,260);li.appendChild(e)}
+    ul.appendChild(li);
+    if(uid&&d.id===uid&&!$("vname").value){$("vname").value=v.name||"";$("vwhen").value=v.when||"";$("vstory").value=$("vstory").value||v.story||"";(v.roles||[]).forEach(function(r){var cb=document.querySelector('input[name="role"][value="'+String(r).replace(/"/g,"")+'"]');if(cb)cb.checked=true});$("vbtn").textContent="Update my sign-up"}
+  });
+  rstat.textContent=docs.length?docs.length+(docs.length===1?" volunteer":" volunteers")+" on the sheet.":"No one yet. Be the first name on the sheet.";
+}
+function offline(t){rstat.textContent=t;$("vbtn").disabled=true;say("Sign-ups from this page need a Claude sign-in and Contributor access. Until then, contact the Pine Ridge Cemetery Association.")}
+(async function(){
+  if(!SIGNUPS_ENABLED)return;
+  var timer=setTimeout(function(){if(!db)offline("The sign-up sheet can't be reached from this view.")},11000);
+  try{
+    var c=window.claude;if(!c||!c.use){clearTimeout(timer);offline("The sign-up sheet opens when this page is viewed on claude.ai.");return}
+    var got=await Promise.all([c.use("db"),c.use("user")]);db=got[0];var user=got[1];
+    clearTimeout(timer);
+    if(!db){offline("The sign-up sheet isn't available in this view.");return}
+    uid=user?await user.id():null;
+    var slow=setTimeout(function(){rstat.textContent="Still reaching the sheet…"},10000);
+    db.collection("signups").onSnapshot(function(s){clearTimeout(slow);renderRoster(s)},function(){clearTimeout(slow);rstat.textContent="The sheet stopped updating. Reopen the page to see new sign-ups."});
+    if(!uid){$("vbtn").disabled=true;say("Sign in to Claude to add your name.")}
+  }catch(e){clearTimeout(timer);offline("The sign-up sheet isn't available in this view.")}
+})();
+$("vform").addEventListener("submit",async function(e){
+  e.preventDefault();if(busy)return;
+  var name=$("vname").value.trim(),roles=[].slice.call(document.querySelectorAll('input[name="role"]:checked')).map(function(x){return x.value});
+  if(!name){say("Add your name so we know who to thank.");$("vname").focus();return}
+  if(!roles.length){say("Choose at least one way to help.");return}
+  if(!db||!uid){say("This view can't save sign-ups. Contact the Pine Ridge Cemetery Association.");return}
+  busy=true;$("vbtn").disabled=true;say("Saving…");
+  try{
+    await db.doc("signups/"+uid).set({name:name,roles:roles,when:$("vwhen").value.trim(),story:$("vstory").value.trim(),ts:Date.now()});
+    var contact=$("vcontact").value.trim();
+    if(contact)await db.doc("contacts/"+uid).set({name:name,contact:contact,ts:Date.now()});
+    say("Thank you, "+name+". You're on the sheet.");$("vbtn").textContent="Update my sign-up";
+  }catch(err){
+    say(err&&err.code==="invalid_argument"?"Your access to this page is view-only, so the sheet couldn't save. Ask the page's owner for Contributor access.":"The sheet couldn't save just now. Try again in a minute.");
+  }
+  busy=false;$("vbtn").disabled=false;
+});
+})();
+</script>
+</body>
+</html>
